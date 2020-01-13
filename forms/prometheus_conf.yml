@@ -1,0 +1,15 @@
+name: prometheus_conf
+label: Prometheus
+description: Configure Prometheus + Grafana
+property_inputs:
+- reference: .properties.prometheus_conf
+  label: Prometheus Server
+  description: Prometheus test tile
+
+
+#- reference: .properties.grafana_allow_anonymous_viewer_access
+#  label: Allow Anonymous Viewer Access
+#  description: If checkes, users will not be prompted for password for Grafana dashboards
+#- reference: .properties.grafana_custom_homepage
+#  label: Custom Grafana Homepage
+#  description: Specify the dashboard JSON to appear on the Grafana homepage

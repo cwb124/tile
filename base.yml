@@ -1,0 +1,48 @@
+---
+name: Prometheus
+label: Prometheus Tile Release
+description: Prometheus tile for PCF Ops Manager
+metadata_version: "2.4" #Version of PCF this is deployed to
+minimum_version_for_upgrade: 0.0.1
+product_version: $( version )
+provides_product_versions:
+- name: prometheus
+  version: $( version )
+
+icon_image: $( icon )
+
+rank: 1
+serial: false
+
+post_deploy_errands: []
+
+releases:
+- $( release "prometheus" )
+
+stemcell_criteria: { os: ubuntu-xenial, version: "315" }
+
+property_blueprints:
+- $( property "prometheus_conf" )
+
+form_types:
+- $( form "prometheus_conf" )
+
+job_types:
+- $( instance_group "prometheus" )
+- $( instance_group "alertmanager" )
+- $( instance_group "grafana" )
+- $( instance_group "nginx" )
+- $( instance_group "database" )
+
+templates:
+- $( job "alertmanager" )
+- $( job "grafana" )
+- $( job "grafana_dashboards" )
+- $( job "nginx" )
+- $( job "postgres" )
+- $( job "postgres_alerts" )
+- $( job "postgres_dashboards" )
+- $( job "postgres_exporter" )
+- $( job "prometheus" )
+- $( job "prometheus_alerts" )
+- $( job "prometheus_dashboards" )

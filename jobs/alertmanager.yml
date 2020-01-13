@@ -1,0 +1,12 @@
+name: alertmanager
+release: prometheus
+manifest: |
+  alertmanager:
+    mesh:
+      password: ((alertmanager_mesh_password))
+    route:
+      receiver: default
+    receivers:
+      - name: default
+    test_alert:
+      daily: true

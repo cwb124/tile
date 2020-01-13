@@ -1,0 +1,12 @@
+name: postgres
+release: prometheus
+manifest: |
+  databases:
+    port: 5432
+    databases:
+      - name: grafana
+        citext: true
+    roles:
+      - name: grafana
+        password: ((postgres_grafana_password))
+

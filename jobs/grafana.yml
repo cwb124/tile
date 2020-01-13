@@ -1,0 +1,27 @@
+name: grafana
+release: prometheus
+manifest: |
+  grafana:
+    database:
+      type: postgres
+      port: 5432
+      name: grafana
+      user: grafana
+      password: ((postgres_grafana_password))
+    session:
+      provider: postgres
+      provider_port: 5432
+      provider_name: grafana
+      provider_password: ((postgres_grafana_password))
+    security:
+      admin_user: admin
+      admin_password: ((grafana_password))
+      secret_key: ((grafana_secret_Key))
+    dashboards:
+      json:
+        enabled: true
+    prometheus:
+      dashboard_files:
+        - /var/vcap/jobs/grafana_dashboards/*.json
+        - /var/vcap/jobs/postgres_dashboards/*.json
+        - /var/vcap/jobs/prometheus_dashboards/*.json

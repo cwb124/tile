@@ -1,0 +1,14 @@
+## Using the same releases and stemcells currently used in openstack production
+
+releases:
+  - name: postgres
+    version: "20"
+    sha1: 3f378bcab294e20316171d4e656636df88763664
+  - name: prometheus
+    version: "19.0.0"
+    sha1: 9d4d51bd38bdaf12509f8451abf24de671bb1e53
+
+stemcell_criteria:
+  - name: ubuntu-xenial
+    sha1: 080c9e73ae765e5907799843ce4422744f74ed86
+    version: 315.146

@@ -1,0 +1,5 @@
+name: postgres_exporter
+release: prometheus
+manifest: |
+  postgres_exporter:
+    datasource_Name: postgresql://grafana:((postgres_grafana_password))@127.0.0.1:5432/?sslmode=disable

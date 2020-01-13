@@ -1,0 +1,10 @@
+name: nginx
+release: prometheus
+manifest: |
+  nginx:
+    alertmanager:
+      auth_username: admin
+      auth_password: ((alertmanager_password))
+    prometheus:
+      auth_username: admin
+      auth_password: ((prometheus_password))
